@@ -21,7 +21,9 @@
     </bean>
 
     <bean id="trampolineCoach"
-          class="com.msyrovets.TrampolineCoach">
+          class="com.msyrovets.TrampolineCoach"
+          init-method="doMyStartupStaff"
+          destroy-method="doMyCleanupStaff">
         <constructor-arg ref="randomFortune"/>
     </bean>
 
