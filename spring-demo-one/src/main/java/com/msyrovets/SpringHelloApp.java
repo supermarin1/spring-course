@@ -10,6 +10,7 @@ public class SpringHelloApp {
     Coach coach = context.getBean("myCoach", Coach.class);
 
     System.out.println(coach.getDailyWorkout());
+    System.out.println(coach.getDailyFortune());
 
     context.close();
   }
