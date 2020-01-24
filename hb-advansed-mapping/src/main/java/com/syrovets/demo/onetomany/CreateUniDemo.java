@@ -1,5 +1,7 @@
-package com.syrovets.demo.onetomany.entity;
+package com.syrovets.demo.onetomany;
 
+import com.syrovets.demo.onetomany.entity.Instructor;
+import com.syrovets.demo.onetomany.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
