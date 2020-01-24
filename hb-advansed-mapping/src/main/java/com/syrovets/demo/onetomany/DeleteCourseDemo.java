@@ -1,17 +1,19 @@
-package com.syrovets.demo.onetoone;
+package com.syrovets.demo.onetomany;
 
-import com.syrovets.demo.onetoone.entity.Instructor;
-import com.syrovets.demo.onetoone.entity.InstructorDetail;
+import com.syrovets.demo.onetomany.entity.Course;
+import com.syrovets.demo.onetomany.entity.Instructor;
+import com.syrovets.demo.onetomany.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateBiDemo {
+public class DeleteCourseDemo {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
-                .configure("hibernate-hb01.cfg.xml")
+                .configure("hibernate-hb03.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
+                .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
 
         Session session = factory.openSession();
@@ -19,10 +21,10 @@ public class CreateBiDemo {
         try {
             session.beginTransaction();
 
-            int id = 2;
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
+            int id = 10;
+            Course course = session.get(Course.class, id);
 
-            System.out.println(">>>>>>>>>" + instructorDetail.getInstructor().getFirstName() + "<<<<<<<<<<<");
+            session.delete(course);
 
             session.getTransaction().commit();
 

@@ -1,7 +1,8 @@
-package com.syrovets.demo.onetoone;
+package com.syrovets.demo.onetomany;
 
-import com.syrovets.demo.onetoone.entity.Instructor;
-import com.syrovets.demo.onetoone.entity.InstructorDetail;
+import com.syrovets.demo.onetomany.entity.Course;
+import com.syrovets.demo.onetomany.entity.Instructor;
+import com.syrovets.demo.onetomany.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 public class CreateDemo {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
-                .configure("hibernate-hb01.cfg.xml")
+                .configure("hibernate-hb03.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .buildSessionFactory();
@@ -17,8 +18,9 @@ public class CreateDemo {
         Session session = factory.openSession();
 
         try {
-            Instructor instructor = new Instructor("Madhu", "Patel", "madhu@luv2code.com");
-            InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com.luv2code", "Guitar");
+            Instructor instructor = new Instructor("Susan", "Public", "susan@luv2code.com");
+
+            InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com/susan", "Gamer");
             instructor.setInstructorDetail(instructorDetail);
 
             session.beginTransaction();

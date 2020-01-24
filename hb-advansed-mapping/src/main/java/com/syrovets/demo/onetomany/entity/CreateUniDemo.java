@@ -1,15 +1,13 @@
-package com.syrovets.demo.onetoone;
+package com.syrovets.demo.onetomany.entity;
 
-import com.syrovets.demo.onetoone.entity.Instructor;
-import com.syrovets.demo.onetoone.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateBiDemo {
+public class CreateUniDemo {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
-                .configure("hibernate-hb01.cfg.xml")
+                .configure("hibernate-hb03.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .buildSessionFactory();
@@ -17,13 +15,13 @@ public class CreateBiDemo {
         Session session = factory.openSession();
 
         try {
+            Instructor instructor = new Instructor("Susan", "Public", "susan@luv2code.com");
+
+            InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com/susan", "Gamer");
+            instructor.setInstructorDetail(instructorDetail);
+
             session.beginTransaction();
-
-            int id = 2;
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
-
-            System.out.println(">>>>>>>>>" + instructorDetail.getInstructor().getFirstName() + "<<<<<<<<<<<");
-
+            session.save(instructor);
             session.getTransaction().commit();
 
             System.out.println("\n >>>>>>DONE<<<<<< \n");
