@@ -1,6 +1,6 @@
-package com.syrovets.dao;
+package com.syrovets.demo.dao;
 
-import com.syrovets.Account;
+import com.syrovets.demo.Account;
 import org.springframework.stereotype.Component;
 
 @Component

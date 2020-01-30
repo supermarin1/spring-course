@@ -1,4 +1,4 @@
-package com.syrovets;
+package com.syrovets.demo;
 
 
 public class Account {

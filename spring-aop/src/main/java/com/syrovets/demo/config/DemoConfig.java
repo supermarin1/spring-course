@@ -1,4 +1,4 @@
-package com.syrovets.config;
+package com.syrovets.demo.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

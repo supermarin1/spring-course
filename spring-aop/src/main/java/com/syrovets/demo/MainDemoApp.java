@@ -1,8 +1,8 @@
-package com.syrovets;
+package com.syrovets.demo;
 
-import com.syrovets.config.DemoConfig;
-import com.syrovets.dao.AccountDao;
-import com.syrovets.dao.MembershipDAO;
+import com.syrovets.demo.config.DemoConfig;
+import com.syrovets.demo.dao.AccountDao;
+import com.syrovets.demo.dao.MembershipDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainDemoApp {

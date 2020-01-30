@@ -1,4 +1,4 @@
-package com.syrovets.dao;
+package com.syrovets.demo.dao;
 
 import org.springframework.stereotype.Component;
 
