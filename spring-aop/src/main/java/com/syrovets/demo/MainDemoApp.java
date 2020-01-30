@@ -2,7 +2,6 @@ package com.syrovets.demo;
 
 import com.syrovets.demo.config.DemoConfig;
 import com.syrovets.demo.dao.AccountDao;
-import com.syrovets.demo.dao.MembershipDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainDemoApp {
@@ -14,14 +13,13 @@ public class MainDemoApp {
         AccountDao accountDao = context.getBean("accountDao",AccountDao.class);
         accountDao.addAccount(account, true);
 
-        MembershipDAO membershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
-        membershipDAO.addAccount();
+//        System.out.println("THE RESULT SIZE IS " + accountDao.getAccountList().size());
 
-        System.out.println("\n >>>>> wait <<<<< \n");
-        membershipDAO.addAccount();
-
-        System.out.println("\n >>>>> wait <<<<< \n");
-        membershipDAO.addSomethingStrange();
+        try{
+            System.out.println("THE RESULT SIZE IS " + accountDao.getAccountListWithEx().size());
+        } catch (Throwable e) {
+            System.out.println("An exception thrown");
+        }
 
         context.close();
     }
